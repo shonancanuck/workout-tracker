@@ -13,6 +13,6 @@
     "migrate": "knex migrate:latest",
     "seed": "knex seed:run",
     "build": "npm install && npm run migrate && npm run seed",
-    "start": "npm run server.js"
+    "start": "node server.js"
   }
 }
