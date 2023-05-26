@@ -8,9 +8,9 @@ router.get("/", cors(), async (req, res) => {
     result = await exerciseModel.getAll();
     res.status(200).send(result);
   } catch (err) {
+    console.error(err);
     res.status(404).send("Exercises not found");
   }
-  console.error(err);
 });
 
 module.exports = router;
