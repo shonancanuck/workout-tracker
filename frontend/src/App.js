@@ -12,21 +12,17 @@ function App() {
 
   // handling functions
 
-  const handleLogin = (userId, username) => {
+  const handleLogin = (userInfo) => {
     setIsLoggedIn(true);
-    setUserId(userId);
-    setUsername(username);
+    setUsername(userInfo[0]);
+    setUserId(userInfo[1]);
   };
 
   return (
     <div className="App">
       <h1>FitTracker</h1>
       {isLoggedIn ? (
-        <Home
-          username={username}
-          userId={userId}
-          setIsLoggedIn={setIsLoggedIn}
-        />
+        <Home username={username} userId={userId} />
       ) : (
         <Login
           username={username}

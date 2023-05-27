@@ -3,13 +3,12 @@ import Header from "./Header";
 import Today from "./Today";
 import Recent from "./Recent";
 
-export default function Home(props) {
-  const { username, userId, setIsLoggedIn } = props;
+export default function Home({ userId }) {
   return (
     <>
-      <Header username={username} setIsLoggedIn={setIsLoggedIn} />
+      <Header userId={userId} />
       <Today />
-      <Recent />
+      <Recent userId={userId} />
     </>
   );
 }

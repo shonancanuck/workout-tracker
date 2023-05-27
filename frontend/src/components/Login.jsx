@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 
 export default function Login(props) {
-  const { onLogin, username, setUsername, userId, setUserId } = props;
+  const { onLogin, username, setUsername } = props;
   // state
   const [password, setPassword] = useState("");
 
   // handlers
 
   const handleUsernameChange = (e) => {
-    setPassword(e.target.value);
+    setUsername(e.target.value);
   };
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
@@ -18,7 +18,7 @@ export default function Login(props) {
     setUsername(e.target.value);
 
     try {
-      const response = await fetch("/login", {
+      const response = await fetch("http://localhost:3001/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -28,10 +28,13 @@ export default function Login(props) {
 
       if (response.ok) {
         console.log("Welcome!");
-        const loginRes = await response.json();
-        onLogin(loginRes);
+
+        const userInfo = await response.json();
+        console.log(userInfo);
+        onLogin(userInfo);
       } else {
         console.log("login unsuccessful");
+        // console.log(response);
       }
     } catch (err) {
       console.error(err);
