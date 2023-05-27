@@ -1,23 +1,39 @@
 import "./styles/App.css";
-import Days from "./components/Days.jsx";
+import { useState } from "react";
+import Login from "./components/Login";
+import Home from "./components/Home";
 
 function App() {
+  // states
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userId, setUserId] = useState(null);
+  const [username, setUsername] = useState("");
+
+  // handling functions
+
+  const handleLogin = (userId, username) => {
+    setIsLoggedIn(true);
+    setUserId(userId);
+    setUsername(username);
+  };
+
   return (
     <div className="App">
-      <Days />
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>FitTracker</h1>
+      {isLoggedIn ? (
+        <Home
+          username={username}
+          userId={userId}
+          setIsLoggedIn={setIsLoggedIn}
+        />
+      ) : (
+        <Login
+          username={username}
+          setUsername={setUsername}
+          onLogin={handleLogin}
+        />
+      )}
     </div>
   );
 }
