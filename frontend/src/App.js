@@ -9,6 +9,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userId, setUserId] = useState(null);
   const [username, setUsername] = useState("");
+  const [todaysWorkout, setTodaysWorkout] = useState(false);
 
   // handling functions
 
@@ -18,11 +19,25 @@ function App() {
     setUserId(userInfo[1]);
   };
 
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
+  const handleTodaysWorkout = () => {
+    setTodaysWorkout((current) => !current);
+  };
+
   return (
     <div className="App">
       <h1>FitTracker</h1>
       {isLoggedIn ? (
-        <Home username={username} userId={userId} />
+        <Home
+          username={username}
+          userId={userId}
+          handleLogout={handleLogout}
+          todaysWorkout={todaysWorkout}
+          handleTodaysWorkout={handleTodaysWorkout}
+        />
       ) : (
         <Login
           username={username}

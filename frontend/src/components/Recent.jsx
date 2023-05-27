@@ -1,16 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-export default function Recent({ userId }) {
+export default function Recent({ userId, exerciseList, todaysWorkout }) {
   const [lastWorkout, setLastWorkout] = useState([]);
-
-  const exerciseList = [
-    "Overhead Press",
-    "Bench Press",
-    "Pull Up",
-    "Row",
-    "Squat",
-    "Deadlift",
-  ];
 
   const getLastWorkout = async () => {
     try {
@@ -48,7 +39,9 @@ export default function Recent({ userId }) {
     );
   });
 
-  return (
+  return todaysWorkout ? (
+    <></>
+  ) : (
     <>
       <h3>Last workout:</h3>
       <ul>{workout}</ul>

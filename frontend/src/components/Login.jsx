@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-export default function Login(props) {
-  const { onLogin, username, setUsername } = props;
+export default function Login({ onLogin, username, setUsername }) {
   // state
   const [password, setPassword] = useState("");
 
@@ -28,13 +27,11 @@ export default function Login(props) {
 
       if (response.ok) {
         console.log("Welcome!");
-
         const userInfo = await response.json();
         console.log(userInfo);
         onLogin(userInfo);
       } else {
         console.log("login unsuccessful");
-        // console.log(response);
       }
     } catch (err) {
       console.error(err);
