@@ -20,30 +20,41 @@ To get started with FitTracker, follow the steps below:
    git clone https://github.com/your-username/FitTracker.git
    ```
 
-2. Install the required dependencies:
+2. Start the Frontend
 
-   ```
-   npm install
-   ```
+   - Navigate to the `frontend` directory.
+   - Install the required dependencies:
 
-3. Set up the database:
+     ```
+     npm install
+     ```
 
-   - FitTracker uses a database to store user data and workout information. Make sure you have a compatible database system (such as PostgreSQL) installed and running.
-   - Create a new database for FitTracker.
-   - Configure the database connection in the application's configuration files.
+   - Run the frontend development server:
 
-4. Set up environment variables:
+     ```
+     npm start
+     ```
 
-   - Create a `.env` file in the root directory of the project.
-   - Define the necessary environment variables in the `.env` file, including database credentials, session secret, etc.
+   - The frontend will be accessible at `http://localhost:3000`.
 
-5. Run the application:
+3. Start the Backend
 
-   ```
-   npm start
-   ```
+   - Navigate to the `backend` directory.
+   - Install the required dependencies:
 
-6. Open your web browser and navigate to `http://localhost:3000` to access FitTracker.
+     ```
+     npm install
+     ```
+
+   - Run the backend server:
+
+     ```
+     npm start
+     ```
+
+   - The backend will be accessible at `http://localhost:3001`.
+
+4. Open your web browser and navigate to `http://localhost:3000` to access FitTracker.
 
 ## Usage
 
@@ -81,10 +92,9 @@ FitTracker provides a simple and intuitive user interface. Here's a brief guide 
 - You will find a comprehensive overview of your progress on different exercises over time.
 - Use this information to monitor improvements and set new fitness goals.
 
-## Contributing
+## Limitations
 
-FitTracker is an open-source project, and contributions are welcome! If you'd like to contribute, please follow these steps:
+Please note the following limitations of FitTracker:
 
-1. Fork the FitTracker repository on GitHub.
-2. Create a new branch for your feature or bug fix.
-3. Make your changes and commit them with descriptive
+- FitTracker is a minimum viable product developed as a school project and may not have all the features or robustness of a production-ready application.
+- The app's frontend and backend must be started separately as outlined in the "Getting Started" section.
