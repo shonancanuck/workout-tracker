@@ -6,6 +6,7 @@ const allowedOrigins = [
   "http://localhost:3000",
   "https://fittrackerview.onrender.com/",
 ];
+const allowedMethods = ["GET", "POST"];
 const port = process.env.PORT || 3001;
 
 const exercise = require("./controller/exercise");
@@ -13,7 +14,7 @@ const user = require("./controller/user");
 const userHistory = require("./controller/history");
 
 app.use(express.json());
-app.use(cors({ origin: allowedOrigins }));
+app.use(cors({ origin: allowedOrigins, methods: allowedMethods }));
 app.use("/", express.static("public"));
 app.use("/exercise", exercise);
 app.use("/user", user);
