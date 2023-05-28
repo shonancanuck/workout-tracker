@@ -15,8 +15,17 @@ export default function Home({
   selectHistory,
 }) {
   // states
+  const [selectedExercise, setSelectedExercise] = useState(null);
 
   // handlers
+  const selectExercise = (e) => {
+    if (selectedExercise) {
+      setSelectedExercise(null);
+    } else {
+      setSelectedExercise(e.target.id);
+    }
+    console.log(selectedExercise);
+  };
 
   const exerciseList = [
     "Overhead Press",
@@ -30,12 +39,19 @@ export default function Home({
   return (
     <>
       <Header username={username} userId={userId} handleLogout={handleLogout} />
-      <History />
+      <History
+        userId={userId}
+        exerciseList={exerciseList}
+        selectedExercise={selectedExercise}
+        selectExercise={selectExercise}
+      />
       <Today
         todaysWorkout={todaysWorkout}
         exerciseList={exerciseList}
         handleTodaysWorkout={handleTodaysWorkout}
         userId={userId}
+        selectedExercise={selectedExercise}
+        selectExercise={selectExercise}
       />
       <Recent
         userId={userId}

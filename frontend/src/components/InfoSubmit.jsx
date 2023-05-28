@@ -1,6 +1,14 @@
 import React from "react";
 
-export default function InfoSubmit({ selectedExercise, exerciseList }) {
+export default function InfoSubmit({
+  selectedExercise,
+  exerciseList,
+  userId,
+  submitId,
+}) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
     <>
       {selectedExercise ? (
@@ -13,6 +21,7 @@ export default function InfoSubmit({ selectedExercise, exerciseList }) {
             <input type="number" id="reps" />
             <label htmlFor="sets">sets</label>
             <input type="number" id="sets" />
+            <input type="submit" onSubmit={handleSubmit} />
           </form>
         </>
       ) : (

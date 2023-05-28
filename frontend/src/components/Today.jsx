@@ -18,7 +18,7 @@ export default function Today({
     if (selectedExercise) {
       setSelectedExercise(null);
     } else {
-      setSelectedExercise(e.target.id);
+      setSelectedExercise(e.target.className);
     }
     console.log(selectedExercise);
   };
@@ -33,7 +33,7 @@ export default function Today({
           />
           <InfoSubmit
             exerciseList={exerciseList}
-            id={selectedExercise}
+            submitId={selectedExercise}
             userId={userId}
             selectedExercise={selectedExercise}
           />

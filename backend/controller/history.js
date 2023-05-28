@@ -3,7 +3,7 @@ const cors = require("cors");
 const router = express.Router();
 const model = require("../model/history");
 
-router.get("/exercise/:userId/:exerciseId", cors(), async (req, res) => {
+router.get("/:userId/:exerciseId", cors(), async (req, res) => {
   try {
     const userId = Number(req.params.userId);
     const exerciseId = Number(req.params.exerciseId);
