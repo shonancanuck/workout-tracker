@@ -18,9 +18,8 @@ router.post("/register", cors(), async (req, res) => {
   router.post("/login", cors(), async (req, res) => {
     try {
       const { username, password } = req.body;
-      // console.log(req.body);
       if (username === "testuser" && password === "test") {
-        res.status(200).send([1, "testuser", "test"]);
+        res.status(200).send(["testuser", 1]);
         return;
       }
       userInfo = await userModel.getUser(username);
