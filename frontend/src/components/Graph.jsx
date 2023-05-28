@@ -29,8 +29,8 @@ export default function Graph({ userId, selectedHistory }) {
           <ul key={day.date.toString()}>
             {day.date}
             <li>weight: {day.weight}</li>
-            <li>sets: {day.reps}</li>
-            <li>reps: {day.sets}</li>
+            <li>reps: {day.reps}</li>
+            <li>sets: {day.sets}</li>
           </ul>
         );
       })}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../styles/Recent.css";
 
 export default function Recent({ userId, exerciseList, todaysWorkout }) {
   // state
@@ -30,12 +31,16 @@ export default function Recent({ userId, exerciseList, todaysWorkout }) {
   const workout = lastWorkout.map((ex) => {
     return (
       <>
-        <li key={ex["exercise_name"]} exerciseid={ex["exercise_id"]}>
+        <li
+          key={ex["exercise_name"]}
+          exerciseid={ex["exercise_id"]}
+          className="mainlist"
+        >
           {ex["exercise_name"]}
-          <ul>
-            <li>{ex.weight}</li>
-            <li>{ex.reps}</li>
-            <li>{ex.sets}</li>
+          <ul className="sublist">
+            <li>weight: {ex.weight}</li>
+            <li>reps: {ex.reps}</li>
+            <li>sets: {ex.sets}</li>
           </ul>
         </li>
       </>
