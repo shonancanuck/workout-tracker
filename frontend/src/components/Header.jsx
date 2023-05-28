@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/Header.css";
 
 export default function Header({ handleLogout, username }) {
   // states
@@ -10,7 +11,6 @@ export default function Header({ handleLogout, username }) {
   return (
     <header>
       <ul>
-        <li onClick={goHome}>Home</li>
         <li>{username}</li>
         <li onClick={handleLogout}>
           <a>Logout</a>

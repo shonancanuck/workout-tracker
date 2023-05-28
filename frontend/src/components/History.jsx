@@ -24,7 +24,7 @@ export default function History({ userId, exerciseList }) {
 
   return (
     <>
-      <h4 onClick={handleHistory}>History</h4>
+      <h3 onClick={handleHistory}>History</h3>
       {showHistory ? (
         <>
           {selectedHistory ? (

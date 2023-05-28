@@ -1,0 +1,22 @@
+ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mainlist {
+  padding: 20px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sublist {
+  display: flex;
+  flex-direction: column;
+}
