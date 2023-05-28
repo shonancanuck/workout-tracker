@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 
 export default function Recent({ userId, exerciseList, todaysWorkout }) {
+  // state
   const [lastWorkout, setLastWorkout] = useState([]);
+  const [selectedExercise, setSelectedExeercise] = useState(null);
+
+  // handling
+  const selectExercise = (e) => {
+    console.log(e.target.innerText);
+  };
 
   const getLastWorkout = async () => {
     try {
@@ -27,7 +34,7 @@ export default function Recent({ userId, exerciseList, todaysWorkout }) {
   const workout = lastWorkout.map((ex) => {
     return (
       <>
-        <li>
+        <li key={ex["exercise_name"]}>
           {ex["exercise_name"]}
           <ul>
             <li>{ex.weight}</li>
@@ -43,6 +50,7 @@ export default function Recent({ userId, exerciseList, todaysWorkout }) {
     <></>
   ) : (
     <>
+      <h4 onClick={selectExercise}>History</h4>
       <h3>Last workout:</h3>
       <ul>{workout}</ul>
     </>

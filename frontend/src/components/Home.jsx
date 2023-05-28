@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Header from "./Header";
+import History from "./History";
 import Today from "./Today";
 import Recent from "./Recent";
 
@@ -10,6 +11,8 @@ export default function Home({
   handleLogout,
   todaysWorkout,
   handleTodaysWorkout,
+  exHistory,
+  selectHistory,
 }) {
   // states
 
@@ -27,15 +30,19 @@ export default function Home({
   return (
     <>
       <Header username={username} userId={userId} handleLogout={handleLogout} />
+      <History />
       <Today
         todaysWorkout={todaysWorkout}
         exerciseList={exerciseList}
         handleTodaysWorkout={handleTodaysWorkout}
+        userId={userId}
       />
       <Recent
         userId={userId}
         exerciseList={exerciseList}
         todaysWorkout={todaysWorkout}
+        exHistory={exHistory}
+        selectHistory={selectHistory}
       />
     </>
   );

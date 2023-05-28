@@ -10,6 +10,7 @@ function App() {
   const [userId, setUserId] = useState(null);
   const [username, setUsername] = useState("");
   const [todaysWorkout, setTodaysWorkout] = useState(false);
+  const [exHistory, setExHistory] = useState(false);
 
   // handling functions
 
@@ -27,6 +28,14 @@ function App() {
     setTodaysWorkout((current) => !current);
   };
 
+  const selectHistory = () => {
+    setExHistory((current) => !current);
+  };
+  const goHome = () => {
+    setExHistory(false);
+    setTodaysWorkout(false);
+  };
+
   return (
     <div className="App">
       <h1>FitTracker</h1>
@@ -37,6 +46,9 @@ function App() {
           handleLogout={handleLogout}
           todaysWorkout={todaysWorkout}
           handleTodaysWorkout={handleTodaysWorkout}
+          exHistory={exHistory}
+          selectHistory={selectHistory}
+          goHome={goHome}
         />
       ) : (
         <Login
