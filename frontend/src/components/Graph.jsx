@@ -8,7 +8,7 @@ export default function Graph({ userId, selectedHistory }) {
     console.log(userId, selectedHistory);
     try {
       const res = await fetch(
-        `http://localhost:3001/user/history/extended/${userId}/${selectedHistory}`
+        `https://fittracker-gvxi.onrender.com/user/history/extended/${userId}/${selectedHistory}`
       );
       console.log(res);
       const graphData = await res.json();

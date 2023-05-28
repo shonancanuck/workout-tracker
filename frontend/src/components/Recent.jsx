@@ -10,7 +10,7 @@ export default function Recent({ userId, exerciseList, todaysWorkout }) {
   const getLastWorkout = async () => {
     try {
       const res = await fetch(
-        `http://localhost:3001/user/history/recent/${userId}`
+        `https://fittracker-gvxi.onrender.com/user/history/recent/${userId}`
       );
       console.log(res);
       const data = await res.json();

@@ -17,13 +17,16 @@ export default function Login({ onLogin, username, setUsername }) {
     setUsername(e.target.value);
 
     try {
-      const response = await fetch("http://localhost:3001/user/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-      });
+      const response = await fetch(
+        "https://fittracker-gvxi.onrender.com/user/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, password }),
+        }
+      );
 
       if (response.ok) {
         console.log("Welcome!");
