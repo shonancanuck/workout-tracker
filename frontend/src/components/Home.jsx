@@ -14,6 +14,19 @@ export default function Home({
   exHistory,
   selectHistory,
 }) {
+  // states
+  const [selectedExercise, setSelectedExercise] = useState(null);
+
+  // handlers
+  const selectExercise = (e) => {
+    if (selectedExercise) {
+      setSelectedExercise(null);
+    } else {
+      setSelectedExercise(e.target.id);
+    }
+    console.log(selectedExercise);
+  };
+
   const exerciseList = [
     "Overhead Press",
     "Bench Press",

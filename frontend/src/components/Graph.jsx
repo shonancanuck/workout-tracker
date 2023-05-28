@@ -1,16 +1,18 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Graph({ userId, selectedHistory }) {
+  const [historyData, setHistoryData] = useState([]);
+
   const getExerciseHistory = async () => {
     console.log(userId, selectedHistory);
     try {
       const res = await fetch(
-        `http://localhost:3001/user/history/${userId}/${selectedHistory}`
+        `http://localhost:3001/user/history/extended/${userId}/${selectedHistory}`
       );
       console.log(res);
       const graphData = await res.json();
-      console.log(graphData);
+      setHistoryData(graphData);
     } catch (err) {
       console.error(err);
     }
@@ -20,5 +22,18 @@ export default function Graph({ userId, selectedHistory }) {
     getExerciseHistory();
   }, []);
 
-  return <div className="Graph"></div>;
+  return (
+    <div className="Graph">
+      {historyData.map((day) => {
+        return (
+          <ul key={day.date.toString()}>
+            {day.date}
+            <li>weight: {day.weight}</li>
+            <li>sets: {day.reps}</li>
+            <li>reps: {day.sets}</li>
+          </ul>
+        );
+      })}
+    </div>
+  );
 }
