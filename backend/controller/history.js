@@ -3,10 +3,10 @@ const cors = require("cors");
 const router = express.Router();
 const model = require("../model/history");
 
-router.get("/exercise", cors(), async (req, res) => {
+router.get("/extended/:userId/:exerciseId", cors(), async (req, res) => {
   try {
-    const userId = req.body.id;
-    const exerciseId = req.body.exerciseId;
+    const userId = Number(req.params.userId);
+    const exerciseId = Number(req.params.exerciseId);
     const result = await model.getHistoryByExercise(userId, exerciseId);
     res.status(200).send(result);
   } catch (err) {
@@ -15,9 +15,9 @@ router.get("/exercise", cors(), async (req, res) => {
   }
 });
 
-router.get("/recent", cors(), async (req, res) => {
+router.get("/recent/:userId", cors(), async (req, res) => {
   try {
-    const userId = req.body.id;
+    const userId = Number(req.params.userId);
     const result = await model.getMostRecentExercises(userId);
     res.status(200).send(result);
   } catch (err) {
